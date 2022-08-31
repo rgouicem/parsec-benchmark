@@ -22,7 +22,7 @@ if [ -z "$MAKE" ]; then
   export MAKE=make
 fi
 if [ -z "$TARGET_CROSS" ]; then
-  export TARGET_CROSS=/usr/bin/
+  export TARGET_CROSS=""
 fi
 
 # Compilers and preprocessors
@@ -39,8 +39,8 @@ export RANLIB="${TARGET_CROSS}ranlib"
 export STRIP="${TARGET_CROSS}strip"
 
 # Arguments to use
-export CFLAGS=" $CFLAGS"
-export CXXFLAGS="$CXXFLAGS -fpermissive -fno-exceptions"
+export CFLAGS=" $CFLAGS -Wno-error=format-security"
+export CXXFLAGS="$CXXFLAGS -fpermissive -fno-exceptions -Wno-error=format-security"
 export CPPFLAGS=""
 export CXXCPPFLAGS=""
 export LIBS=""
